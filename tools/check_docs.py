@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import re
+import ssl
 import sys
 import urllib.error
 import urllib.request
@@ -208,6 +209,17 @@ def probe(url: str) -> tuple[str, str, str]:
             return url, "error", last
         except Exception as e:  # noqa: BLE001 - network errors of any kind
             last = type(e).__name__ + ": " + str(e)[:80]
+            if "CERTIFICATE_VERIFY_FAILED" in str(e):
+                # Strict TLS verification failed (often an incomplete server chain). Retry once without
+                # verification purely to learn whether the URL resolves; report as a warning either way.
+                try:
+                    ctx = ssl.create_default_context()
+                    ctx.check_hostname = False
+                    ctx.verify_mode = ssl.CERT_NONE
+                    with urllib.request.urlopen(req, timeout=25, context=ctx) as resp:
+                        return url, "blocked", f"TLS verification failed but URL responds {resp.status}"
+                except Exception:  # noqa: BLE001
+                    pass
             if method == "HEAD":
                 continue
     return url, "error", last
