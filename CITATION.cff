@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this project or its research documents, please cite it as below."
+title: "Valtoryn Warehouse Robotics"
+type: software
+abstract: >-
+  An open-source effort to build a modular autonomous warehouse robotics platform.
+  The project is in an early research and architecture phase; no software is implemented yet.
+authors:
+  - family-names: "Bhogesara"
+    given-names: "Ram"
+    alias: "bhogesararam23"
+repository-code: "https://github.com/valtoryn/warehouse-robotics"
+license: Apache-2.0
+keywords:
+  - robotics
+  - warehouse automation
+  - autonomous mobile robots
+  - modular robotics
+  - ROS 2
