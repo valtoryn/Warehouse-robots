@@ -222,6 +222,8 @@ def probe(url: str) -> tuple[str, str, str]:
                     pass
             if method == "HEAD":
                 continue
+    if "timed out" in last.lower():
+        return url, "blocked", "timed out (inconclusive)"
     return url, "error", last
 
 
