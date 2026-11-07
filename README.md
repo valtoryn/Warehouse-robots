@@ -54,4 +54,6 @@ Research, architecture and engineering documents are added under `docs/` as each
 
 ## License
 
-Apache License 2.0 (see [LICENSE](LICENSE)). The licence choice is the repository owner's to confirm.
+Apache License 2.0 (see [LICENSE](LICENSE)), confirmed by the repository owner. It matches the licence used by the
+core ROS 2 ecosystem and includes an explicit patent grant. Third-party dependencies carry their own licences (for
+example, SLAM Toolbox is LGPL-2.1); a dependency-licence audit is still to be done before any release.
