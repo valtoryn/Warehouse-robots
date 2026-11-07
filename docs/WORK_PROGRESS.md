@@ -45,13 +45,14 @@
 ## Commits and pushes
 
 - `53d7554` docs: audit R01-R08 research and record findings — pushed, verified on remote (`git ls-remote`).
-- (architecture commit pending at time of writing)
+- `171c805` docs: add system architecture and modularity specification — pushed, verified on remote.
+- (engineering commit pending at time of writing)
 
 ## Remaining work
 
-- **Milestone C — engineering specifications** (not yet started):
-  - `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md`
-  - `docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md`
+- **Milestone C — engineering specifications** (in progress):
+  - `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md` — **DONE** (commit pending).
+  - `docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md` — next.
   - `docs/engineering/SIMULATION_REQUIREMENTS.md`
   - `docs/engineering/VALIDATION_STRATEGY.md`
   - `docs/engineering/DEVELOPMENT_ROADMAP.md`
@@ -60,6 +61,6 @@
 
 ## Exact next action
 
-Commit and push the six architecture documents, then write `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md`
-using the R03 §10 sizing methodology (formulas 1–14) with the A1–A16 assumption table as the template —
-carry forward the open items A-3 (Crr/derating) and mark every value [FACT]/[CALC]/[EST]/[UNRESOLVED].
+Commit `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md`, then write
+`docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md` standardising actuator/sensor/power/compute/
+communication/payload/safety interfaces per HARDWARE_ABSTRACTION.md and R03 §5, §11, §13.
