@@ -5,41 +5,61 @@
 
 ## Completed work
 
-- Repository and remote inspected: `main` clean and in sync with `origin/main` at commit `6586196` (2026-11-07).
-  Docs-only repository: README, CLAUDE.md, CONTRIBUTING.md, SECURITY.md, CITATION.cff, LICENSE (Apache-2.0),
-  `tools/check_docs.py`, `docs/research/R01–R08`, `docs/references/SOURCES.md` (486 sources). No source code, tests,
-  CI or configuration files exist beyond `.gitattributes`/`.gitignore`.
-- `python tools/check_docs.py` run: **0 errors, 0 warnings** (14 markdown files, 486 sources).
-- All eight research documents read in full (R06–R08 via delegated read; verified by spot-check of reported issues).
-  `docs/references/SOURCES.md` confirmed generated/consistent with the Sources tables (checker enforces this).
-- Research audit performed; findings recorded in `docs/RESEARCH_AUDIT.md`.
+- Repository and remote inspected: `main` clean, in sync with `origin/main`. Docs-only repo (no source code,
+  tests, CI, or config beyond `.gitattributes`/`.gitignore`).
+- `python tools/check_docs.py`: 0 errors, 0 warnings at baseline (14 files, 486 sources).
+- All eight research documents audited (R01–R05 read directly; R06–R08 via delegated full read with spot
+  verification). Findings in `docs/RESEARCH_AUDIT.md`.
+- **Milestone A complete:** `docs/RESEARCH_AUDIT.md` — per-document findings classified
+  Confirmed / Correction required / Incomplete evidence / Conflicting evidence / Unresolved / Recommendation.
+  No demonstrable factual errors found requiring research edits; discrepancies were already self-disclosed.
+- **Milestone B complete (documentation):** six architecture documents written under `docs/architecture/`:
+  - `PRODUCT_REQUIREMENTS.md` — FR-M/A/F/S/D, NFR-1..7, constraints C-1..6, success criteria.
+  - `SYSTEM_ARCHITECTURE.md` — 8 layers + safety domain, interfaces, data ownership, config mgmt,
+    lifecycle/tiers, capability declarations, backend boundaries, error handling, versioning.
+  - `MODULARITY_SPECIFICATION.md` — 3 modularity levels, module taxonomy, config schema, manifest fields,
+    C1–C5 gates, identity model, reconfiguration tiers, chassis interface, facility model, versioning.
+  - `HARDWARE_ABSTRACTION.md` — ros2_control boundary, chassis kinematics contract, actuator/sensor/power/
+    compute boundaries, backend conformance contract, error handling, open items HA-1..6.
+  - `TECHNOLOGY_DECISIONS.md` — TD-1..19 proposed decisions, rejected/deferred list, gates G-A..G-F,
+    version baseline.
+  - `ARCHITECTURE_DECISION_RECORDS.md` — ADR-001..012 with requirements/alternatives/evidence/trade-offs/
+    recommendation/risks/unresolved each.
 
 ## Files created or modified
 
-- `docs/WORK_PROGRESS.md` (this file)
 - `docs/RESEARCH_AUDIT.md`
+- `docs/WORK_PROGRESS.md`
+- `docs/architecture/PRODUCT_REQUIREMENTS.md`
+- `docs/architecture/SYSTEM_ARCHITECTURE.md`
+- `docs/architecture/MODULARITY_SPECIFICATION.md`
+- `docs/architecture/HARDWARE_ABSTRACTION.md`
+- `docs/architecture/TECHNOLOGY_DECISIONS.md`
+- `docs/architecture/ARCHITECTURE_DECISION_RECORDS.md`
 
 ## Validation results
 
-- `python tools/check_docs.py`: 0 errors, 0 warnings after adding audit + progress files.
-- No code exists, so no build/test/lint applicable.
+- `python tools/check_docs.py`: 0 errors, 0 warnings (16 markdown files, 486 sources) after audit+progress.
+- Architecture docs use the same evidence tags; all proposed decisions marked *proposed*, not implemented.
 
 ## Commits and pushes
 
-- (to be filled as commits are made)
+- `53d7554` docs: audit R01-R08 research and record findings — pushed, verified on remote (`git ls-remote`).
+- (architecture commit pending at time of writing)
 
 ## Remaining work
 
-- Milestone B: architecture synthesis — `PRODUCT_REQUIREMENTS.md`, `SYSTEM_ARCHITECTURE.md`,
-  `MODULARITY_SPECIFICATION.md`, `HARDWARE_ABSTRACTION.md`, `TECHNOLOGY_DECISIONS.md`,
-  `ARCHITECTURE_DECISION_RECORDS.md`.
-- Milestone C: engineering specifications — `REFERENCE_ROBOT_SPECIFICATION.md`,
-  `HARDWARE_INTERFACE_SPECIFICATION.md`, `SIMULATION_REQUIREMENTS.md`, `VALIDATION_STRATEGY.md`,
-  `DEVELOPMENT_ROADMAP.md`.
-- Final audit: consistency check across all docs, `ARCHITECTURE_MILESTONE_REPORT.md`, `--external` URL check
-  where practical.
+- **Milestone C — engineering specifications** (not yet started):
+  - `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md`
+  - `docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md`
+  - `docs/engineering/SIMULATION_REQUIREMENTS.md`
+  - `docs/engineering/VALIDATION_STRATEGY.md`
+  - `docs/engineering/DEVELOPMENT_ROADMAP.md`
+- Final: consistency audit across all docs, `docs/ARCHITECTURE_MILESTONE_REPORT.md`,
+  `python tools/check_docs.py --external` where practical, final push verification.
 
 ## Exact next action
 
-Write `docs/architecture/PRODUCT_REQUIREMENTS.md` and `SYSTEM_ARCHITECTURE.md` from the audited research,
-starting with the confirmed reuse/build decisions in RESEARCH_AUDIT.md section "Confirmed reuse/build decisions".
+Commit and push the six architecture documents, then write `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md`
+using the R03 §10 sizing methodology (formulas 1–14) with the A1–A16 assumption table as the template —
+carry forward the open items A-3 (Crr/derating) and mark every value [FACT]/[CALC]/[EST]/[UNRESOLVED].
