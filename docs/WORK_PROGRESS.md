@@ -51,9 +51,9 @@
 ## Remaining work
 
 - **Milestone C — engineering specifications** (in progress):
-  - `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md` — **DONE** (commit pending).
-  - `docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md` — next.
-  - `docs/engineering/SIMULATION_REQUIREMENTS.md`
+  - `docs/engineering/REFERENCE_ROBOT_SPECIFICATION.md` — **DONE** (`b139d31`).
+  - `docs/engineering/HARDWARE_INTERFACE_SPECIFICATION.md` — **DONE** (commit pending).
+  - `docs/engineering/SIMULATION_REQUIREMENTS.md` — next.
   - `docs/engineering/VALIDATION_STRATEGY.md`
   - `docs/engineering/DEVELOPMENT_ROADMAP.md`
 - Final: consistency audit across all docs, `docs/ARCHITECTURE_MILESTONE_REPORT.md`,
